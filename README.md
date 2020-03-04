@@ -1,23 +1,30 @@
-# Phodal's Personal Knowledge Management toolbox
+# PowerMD
 
->  Phodal's Personal Knowledge Management toolbox
+[![Markdown Improve](https://img.shields.io/badge/markdown--improve-Phodal-blue.svg)](https://github.com/phodal/markdown-improve)
 
-Demo: [https://inception.phodal.com/](https://inception.phodal.com/)
+PowerMD is a new markdown tool for Phodal's wrok.
 
-## Setup
+Features:
 
-1. ``yarn install``
-2. ``yarn start``
+ - [x] markdown to mindset
+ - [x] markdown to todo list
+ - [ ] markdown to Checklist
+ - [ ] markdown to RadarChart (with checklist)
+ - [ ] markdown to RadarChart (with rating)
 
-## Libraries
+# Screenshots
 
-Markdown
+Markdown to Mindset
 
- - https://github.com/IonicaBizau/medium-editor-markdown
- - https://github.com/yabwe/medium-editor
- - https://github.com/jfcere/ngx-markdown
+![Mindset](docs/images/md-mindset.png)
 
-## LICENSE
+Markdown to Todo List
 
- MIT
- 
+![Todolist](docs/images/md-todo.png)
+
+License
+---
+
+[![Phodal's Idea](http://brand.phodal.com/shields/idea-small.svg)](http://ideas.phodal.com/)
+
+@ 2020 A [Phodal Huang](https://www.phodal.com)'s [Idea](http://github.com/phodal/ideas).  This code is distributed under the MPL license. See `LICENSE` in this directory.
