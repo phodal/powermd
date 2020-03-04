@@ -1,5 +1,8 @@
-<div #baseElement>
-    <div id="chart"></div>
+<div #baseElement id="markdown-radar">
+  <div id="chart"></div>
+  <markdown-rating
+    id="rating"
+    [(ngModel)]="value"
+    (ngModelChange)="updateModel($event)">
+  </markdown-rating>
 </div>
-<markdown-rating [(ngModel)]="value"
-                 (ngModelChange)="updateModel($event)"></markdown-rating>
