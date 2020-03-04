@@ -1,0 +1,5 @@
+<div class="nav-bar">
+  <ng-container *ngFor="let link of linksData">
+    <a mat-button routerLinkActive="active-link" [routerLink]="link.link">{{link.name}}</a>
+  </ng-container>
+</div>

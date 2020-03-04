@@ -1,0 +1,66 @@
+:host {
+  position: relative;
+
+  *:focus {
+    outline: none;
+  }
+}
+
+.editing,
+.draggable-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.menu-container {
+  position: absolute;
+  top: -20px;
+}
+
+.drag-box,
+.draggable-section {
+  padding: 20px 10px;
+  text-align: center;
+
+  min-width: 200px;
+  max-width: 300px;
+  min-height: 60px;
+  height: auto;
+  width: auto;
+  overflow-wrap: break-word;
+}
+
+.drag-box {
+  border-style: dashed;
+  border-width: 1px;
+}
+
+.button {
+  background-color: #EEEEEE;
+  border: solid;
+  border-width: 1px;
+  color: black;
+  padding: 0px;
+  height: 25px;
+  margin: 1px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+mat-form-field {
+  width: 60px;
+}
+
+.color-menu {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+.menu-container {
+  display: flex;
+  align-items: center;
+}

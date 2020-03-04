@@ -1,0 +1,13 @@
+::ng-deep {
+  .mat-checkbox {
+    margin-right: 12px;
+  }
+}
+
+.item-markdown-render {
+  display: inline-block;
+  p,
+  * {
+    display: inline-block;
+  }
+}

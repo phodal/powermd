@@ -1,0 +1,49 @@
+::ng-deep {
+  .CodeMirror, .CodeMirror-scroll {
+    height: calc(100vh - 100px);
+  }
+}
+
+:host {
+  background: #fff;
+}
+
+.markdown-editor-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  height: 100vh;
+
+  .editor {
+    flex: 1;
+    padding: 1rem;
+  }
+
+  .preview {
+    flex: 1;
+    padding: 1rem;
+  }
+}
+
+.preview ::ng-deep {
+  ul, li, a {
+    line-height: 1;
+  }
+
+  .start-date {
+    color: green;
+  }
+
+  .end-date {
+    color: red;
+  }
+
+  .priority {
+    color: #1abc9c;
+  }
+
+  .tag {
+    padding: 10px;
+    background: #f53d3d;
+  }
+}

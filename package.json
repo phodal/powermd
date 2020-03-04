@@ -1,0 +1,98 @@
+{
+  "name": "inception",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "deploy": "ng build --prod --base-href 'https://inception.phodal.com' && echo 'inception.phodal.com' > dist/CNAME && npx angular-cli-ghpages"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^8.1.2",
+    "@angular/cdk": "^8.1.1",
+    "@angular/common": "~8.1.2",
+    "@angular/compiler": "~8.1.2",
+    "@angular/core": "~8.1.2",
+    "@angular/flex-layout": "^8.0.0-beta.26",
+    "@angular/forms": "~8.1.2",
+    "@angular/material": "^8.1.1",
+    "@angular/platform-browser": "~8.1.2",
+    "@angular/platform-browser-dynamic": "~8.1.2",
+    "@angular/router": "~8.1.2",
+    "@ecodev/fab-speed-dial": "^3.1.4",
+    "@swimlane/ngx-datatable": "^15.0.2",
+    "angular-calendar": "^0.27.14",
+    "angular-split": "^3.0.2",
+    "angular-vertical-timeline": "^0.6.0",
+    "angularx-flatpickr": "^6.1.0",
+    "core-js": "^2.5.4",
+    "d3": "3.5.17",
+    "date-fns": "^1.30.1",
+    "flatpickr": "^4.6.2",
+    "font-awesome": "^4.7.0",
+    "hammerjs": "^2.0.8",
+    "lodash": "^4.17.15",
+    "material-design-icons": "^3.0.1",
+    "mousetrap": "^1.6.3",
+    "ng2-dragula": "^2.1.1",
+    "ngx-contextmenu": "^5.2.0",
+    "ngx-markdown": "^8.1.0",
+    "normalize.css": "^8.0.1",
+    "rxjs": "~6.3.3",
+    "shortid": "^2.2.14",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.801.2",
+    "@angular/cli": "~8.1.2",
+    "@angular/compiler-cli": "~8.1.2",
+    "@angular/language-service": "~8.1.2",
+    "@types/d3": "^3.5.17",
+    "@types/jasmine": "~2.8.8",
+    "@types/jasminewd2": "~2.0.3",
+    "@types/lodash": "^4.14.136",
+    "@types/medium-editor": "^5.0.3",
+    "@types/mousetrap": "^1.6.3",
+    "@types/node": "^12.6.8",
+    "@types/shortid": "^0.0.29",
+    "angular-cli-ghpages": "^0.5.3",
+    "codelyzer": "~4.5.0",
+    "husky": "^1.3.1",
+    "jasmine-core": "~2.99.1",
+    "jasmine-spec-reporter": "~4.2.1",
+    "karma": "~4.0.0",
+    "karma-chrome-launcher": "~2.2.0",
+    "karma-coverage-istanbul-reporter": "~2.0.1",
+    "karma-jasmine": "~1.1.2",
+    "karma-jasmine-html-reporter": "^0.2.2",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.16.4",
+    "protractor": "~5.4.0",
+    "stylelint": "^9.10.1",
+    "ts-node": "~7.0.0",
+    "tslint": "~5.11.0",
+    "typescript": "~3.4.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "ng lint",
+      "pre-push": "ng test && ng build --prod --aot"
+    }
+  },
+  "lint-staged": {
+    "src/app/*.{css,scss}": [
+      "stylelint --syntax=scss",
+      "prettier --parser --write",
+      "git add"
+    ],
+    "{src,test}/**/*.ts": [
+      "prettier --write --single-quote",
+      "git add"
+    ]
+  }
+}

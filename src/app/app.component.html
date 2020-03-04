@@ -1,0 +1,12 @@
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+  <mat-drawer #drawer [mode]="'push'">
+    <nav class="nav-bar">
+      <button mat-menu-item routerLinkActive="active-link" routerLink="/">Home</button>
+      <button mat-menu-item routerLink="/help">Help</button>
+    </nav>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

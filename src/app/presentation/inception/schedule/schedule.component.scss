@@ -1,0 +1,10 @@
+.fill-height {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+section {
+  padding: 16px 0;
+}

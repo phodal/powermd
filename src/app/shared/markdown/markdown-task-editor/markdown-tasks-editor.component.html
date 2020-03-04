@@ -1,0 +1,32 @@
+<div class="markdown-editor-container">
+  <as-split unit="percent" [direction]="direction" (dragEnd)="dragEnd('percent', $event)" #split="asSplit">
+    <as-split-area size="30" #area1="asSplitArea">
+      <div class="editor">
+        <textarea class="markdown-task-editor"></textarea>
+      </div>
+    </as-split-area>
+    <as-split-area size="70" #area2="asSplitArea">
+      <div class="preview">
+        <mat-form-field>
+          <mat-label>Render Type</mat-label>
+          <mat-select [(value)]="displayType" (selectionChange)="changeRenderType($event)">
+            <mat-option value="todo">Todo</mat-option>
+            <mat-option value="mindmap">Mind Map</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <component-markdown-task-render
+          *ngIf="displayType === 'todo'"
+          [(ngModel)]="tasks"
+          (ngModelChange)="updateModel($event)">
+        </component-markdown-task-render>
+        <div *ngIf="displayType === 'mindmap'">
+          <component-mind-map
+            [(ngModel)]="tasks"
+            (ngModelChange)="updateModel($event)">
+          </component-mind-map>
+        </div>
+      </div>
+    </as-split-area>
+  </as-split>
+</div>
