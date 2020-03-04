@@ -22,7 +22,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
   @ViewChild('baseElement', {}) baseElement: ElementRef;
   items: MarkdownTaskModel[];
   data: any[] = [];
-  private value: any;
+  value: any;
   private disabled: boolean;
 
   constructor(private markdownTaskItemService: MarkdownTaskItemService) {
