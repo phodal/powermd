@@ -23,7 +23,7 @@ export class DraggableEditableSectionComponent implements ControlValueAccessor {
   @Input() backgroundColors = null;
   @Input() showCommands = true;
 
-  @ViewChild('item', null) item: ElementRef;
+  @ViewChild('item', {}) item: ElementRef;
 
   offset = { x: 0, y: 0 };
   disabled = false;

@@ -24,7 +24,7 @@ const Mousetrap = require('mousetrap');
   ]
 })
 export class MindMapComponent implements OnInit, AfterViewInit, ControlValueAccessor {
-  @ViewChild('mapElement', null) mapElement: ElementRef;
+  @ViewChild('mapElement', {}) mapElement: ElementRef;
 
   value: string;
   items: any;
