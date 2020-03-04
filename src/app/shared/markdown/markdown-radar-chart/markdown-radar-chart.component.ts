@@ -64,6 +64,10 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
 
   }
 
+  updateModel($event: any) {
+
+  }
+
   private taskToData(tasks: any[]) {
     const data: any[] = [];
     for (const task of tasks) {

@@ -23,6 +23,8 @@ import { MarkdownTaskItemFormComponent } from './markdown/markdown-task-item-for
 import { AngularSplitModule } from 'angular-split';
 import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kanban.component';
 import { MarkdownRadarChartComponent } from './markdown/markdown-radar-chart/markdown-radar-chart.component';
+import { MarkdownRatingComponent } from './markdown/markdown-rating/markdown-rating.component';
+import { MarkdownRatingItemComponent } from './markdown/markdown-rating-item/markdown-rating-item.component';
 
 @NgModule({
   imports: [
@@ -59,7 +61,10 @@ import { MarkdownRadarChartComponent } from './markdown/markdown-radar-chart/mar
     MarkdownTaskRenderComponent,
     MarkdownTaskItemFormComponent,
     MarkdownKanbanComponent,
-    MarkdownRadarChartComponent
+    MarkdownRadarChartComponent,
+
+    MarkdownRatingComponent,
+    MarkdownRatingItemComponent
   ],
   providers: [
     ContentEditableDirective,
@@ -85,7 +90,9 @@ import { MarkdownRadarChartComponent } from './markdown/markdown-radar-chart/mar
     RichTextEditorComponent,
     MarkdownTaskItemFormComponent,
     MarkdownKanbanComponent,
-    MarkdownRadarChartComponent
+    MarkdownRadarChartComponent,
+    MarkdownRatingComponent,
+    MarkdownRatingItemComponent
   ],
   entryComponents: [
     MarkdownTaskItemFormComponent

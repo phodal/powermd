@@ -1,3 +1,5 @@
 <div #baseElement>
     <div id="chart"></div>
 </div>
+<markdown-rating [(ngModel)]="value"
+                 (ngModelChange)="updateModel($event)"></markdown-rating>
