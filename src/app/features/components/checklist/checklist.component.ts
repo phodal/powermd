@@ -3,7 +3,7 @@ import { isEmpty } from 'lodash';
 
 import { ChecklistModel } from '../../../core/model/checklist.model';
 import { StorageService } from '../../../core/services/storage.service';
-import { MatCheckboxChange } from '@angular/material';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'component-checklist',

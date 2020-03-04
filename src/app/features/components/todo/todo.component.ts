@@ -1,10 +1,10 @@
 import { Component, EventEmitter, forwardRef, Input, OnDestroy, OnInit, Output } from '@angular/core';
-import { MatCheckboxChange } from '@angular/material';
 import { ControlValueAccessor, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 
 import { TodoModel } from '../../../core/model/todo.model';
 import { StorageService } from '../../../core/services/storage.service';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'component-todo',

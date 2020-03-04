@@ -6,8 +6,8 @@ import { SplitAreaDirective, SplitComponent } from 'angular-split';
 import { MarkdownTaskModel } from '../model/markdown.model';
 import MarkdownHelper from '../utils/markdown.helper';
 import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-item.service';
-import { MatSelectChange } from '@angular/material';
 import { StorageService } from '../../../core/services/storage.service';
+import { MatSelectChange } from '@angular/material/select';
 
 @Component({
   selector: 'component-markdown-task-editor',
