@@ -9,5 +9,7 @@ export interface MarkdownTaskModel {
   context?: string;
   priority?: string;
   mail?: string;
+  value?: number;
   tag?: string[];
 }
+

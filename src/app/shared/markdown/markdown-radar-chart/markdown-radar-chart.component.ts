@@ -20,7 +20,7 @@ import d3 from 'd3';
 })
 export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @ViewChild('baseElement', {}) baseElement: ElementRef;
-  items: MarkdownTaskModel[];
+  items: any[];
   data: any[] = [];
   value: any;
   private disabled: boolean;
@@ -65,20 +65,20 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
   }
 
   updateModel($event: any) {
-
+    console.log($event);
   }
 
-  private taskToData(tasks: any[]) {
+  private taskToData() {
     const data: any[] = [];
-    for (const task of tasks) {
+    for (const task of this.items) {
       let text = task.item.text;
       let value = 3;
 
       const execArray = /(.*)\:\s*(\d)/.exec(text);
       if (execArray && execArray.length >= 3) {
-        console.log(execArray);
         text = execArray[1];
         value = parseInt(execArray[2], 10);
+        task.item.value = value;
       }
       data.push(
         {
@@ -96,7 +96,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
     if (!this.items) {
       return;
     }
-    this.data = this.taskToData(this.items);
+    this.data = this.taskToData();
 
     const w = 500;
     const h = 500;

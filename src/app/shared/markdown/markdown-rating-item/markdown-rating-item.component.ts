@@ -1,7 +1,7 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MarkdownTaskModel } from '../model/markdown.model';
-import { MatCheckboxChange } from '@angular/material/checkbox';
+import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
   selector: 'markdown-rating-item',
@@ -27,12 +27,8 @@ export class MarkdownRatingItemComponent implements OnInit {
   onTouched(param1) {
   }
 
-  constructor() {
-  }
-
   ngOnInit() {
   }
-
 
   registerOnChange(fn: any): void {
     this.itemChange.emit = fn;
@@ -55,27 +51,16 @@ export class MarkdownRatingItemComponent implements OnInit {
     }
   }
 
-  updateText($event: any) {
-    this.item.editable = false;
-    this.itemChange.emit(this.item);
-  }
+  updateValue($event: MatSliderChange) {
+    this.item.value = $event.value;
+    const execArray = /(.*)\:\s*(\d)/.exec(this.item.text);
+    if (execArray && execArray.length >= 3) {
+      const text = execArray[1];
+      this.item.text = text + ':' + this.item.value;
+    } else {
+       this.item.text = this.item.text + ':' + this.item.value;
+    }
 
-  changeStartDateInput($event: any) {
-    this.item.startDate = $event;
-    this.itemChange.emit(this.item);
-  }
-
-  changeEndDateInput($event: any) {
-    this.item.endDate = $event;
-    this.itemChange.emit(this.item);
-  }
-
-  enableEdit(event) {
-    this.item.editable = true;
-  }
-
-  checkValue($event: MatCheckboxChange) {
-    this.item.completed = $event.checked;
     this.itemChange.emit(this.item);
   }
 }

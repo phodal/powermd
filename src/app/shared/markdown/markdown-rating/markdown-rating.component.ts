@@ -51,10 +51,10 @@ export class MarkdownRatingComponent implements OnInit, ControlValueAccessor {
   }
 
   checkValue($event: any, item) {
-    this.markdownTaskItemService.updateTask($event, item);
+
   }
 
   changeForm($event: any, item: any) {
-    this.markdownTaskItemService.updateTask($event, item);
+    console.log($event, item);
   }
 }
