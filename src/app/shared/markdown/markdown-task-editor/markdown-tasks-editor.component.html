@@ -12,19 +12,28 @@
           <mat-select [(value)]="displayType" (selectionChange)="changeRenderType($event)">
             <mat-option value="todo">Todo</mat-option>
             <mat-option value="mindmap">Mind Map</mat-option>
+            <mat-option value="radar">Radar Chart</mat-option>
           </mat-select>
         </mat-form-field>
 
-        <component-markdown-task-render
-          *ngIf="displayType === 'todo'"
-          [(ngModel)]="tasks"
-          (ngModelChange)="updateModel($event)">
-        </component-markdown-task-render>
+        <div *ngIf="displayType === 'todo'">
+          <component-markdown-task-render
+            [(ngModel)]="tasks"
+            (ngModelChange)="updateModel($event)">
+          </component-markdown-task-render>
+        </div>
         <div *ngIf="displayType === 'mindmap'">
           <component-mind-map
             [(ngModel)]="tasks"
             (ngModelChange)="updateModel($event)">
           </component-mind-map>
+        </div>
+        <div *ngIf="displayType === 'radar'">
+          <component-markdown-radar-chart
+            [ngModel]="tasks"
+            ngDefaultControl
+          >
+          </component-markdown-radar-chart>
         </div>
       </div>
     </as-split-area>

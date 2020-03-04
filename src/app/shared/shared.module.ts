@@ -22,6 +22,7 @@ import { MindMapModule } from './modules/mind-map/mind-map.module';
 import { MarkdownTaskItemFormComponent } from './markdown/markdown-task-item-form/markdown-task-item-form.component';
 import { AngularSplitModule } from 'angular-split';
 import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kanban.component';
+import { MarkdownRadarChartComponent } from './markdown/markdown-radar-chart/markdown-radar-chart.component';
 
 @NgModule({
   imports: [
@@ -57,7 +58,8 @@ import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kan
     RichTextEditorComponent,
     MarkdownTaskRenderComponent,
     MarkdownTaskItemFormComponent,
-    MarkdownKanbanComponent
+    MarkdownKanbanComponent,
+    MarkdownRadarChartComponent
   ],
   providers: [
     ContentEditableDirective,
@@ -82,7 +84,8 @@ import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kan
     MarkdownTaskRenderComponent,
     RichTextEditorComponent,
     MarkdownTaskItemFormComponent,
-    MarkdownKanbanComponent
+    MarkdownKanbanComponent,
+    MarkdownRadarChartComponent
   ],
   entryComponents: [
     MarkdownTaskItemFormComponent
