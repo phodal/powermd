@@ -5,7 +5,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import RadarChart from './RadarChart.js';
 import d3 from 'd3';
-import MarkdownHelper from '../utils/markdown.helper';
 
 @Component({
   selector: 'component-markdown-radar-chart',
@@ -32,8 +31,8 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
   ngOnInit() {
   }
 
-
   onChange(value: any) {
+
   }
 
   onTouched() {
@@ -68,10 +67,19 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
   private taskToData(tasks: any[]) {
     const data: any[] = [];
     for (const task of tasks) {
+      let text = task.item.text;
+      let value = 3;
+
+      const execArray = /(.*)\:\s*(\d)/.exec(text);
+      if (execArray && execArray.length >= 3) {
+        console.log(execArray);
+        text = execArray[1];
+        value = parseInt(execArray[2], 10);
+      }
       data.push(
         {
-          axis: task.item.text,
-          value: 3
+          axis: text,
+          value
         }
       );
     }

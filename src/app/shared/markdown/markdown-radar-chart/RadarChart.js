@@ -173,7 +173,7 @@ var RadarChart = {
         })
         .style("fill-opacity", cfg.opacityArea)
         .on('mouseover', function (d) {
-          z = "polygon." + d3.select(this).attr("class");
+          var z = "polygon." + d3.select(this).attr("class");
           g.selectAll("polygon")
             .transition(200)
             .style("fill-opacity", 0.1);
