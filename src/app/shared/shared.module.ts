@@ -6,8 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CustomMaterialModule } from './custom-material.module';
 import { NgxTreeDndModule } from './third-party/ngx-tree-dnd/ngx-tree-dnd.module';
-import { CalendarHeaderComponent } from './components/calendar-header/calendar-header.component';
-import { CalendarCommonModule } from 'angular-calendar';
 import { ContentEditableDirective } from './directives/content-editable.directive';
 import { DraggableEditableSectionComponent } from './components/draggable-editable-section/draggable-editable-section.component';
 import { EcoFabSpeedDialModule } from '@ecodev/fab-speed-dial';
@@ -34,7 +32,6 @@ import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kan
     ReactiveFormsModule,
     CustomMaterialModule,
     NgxTreeDndModule,
-    CalendarCommonModule,
     EcoFabSpeedDialModule,
     FlexLayoutModule,
     FlatpickrModule.forRoot(),
@@ -51,7 +48,6 @@ import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kan
     MindMapModule
   ],
   declarations: [
-    CalendarHeaderComponent,
     DraggableEditableSectionComponent,
     ContentEditableDirective,
     GridEditorComponent,
@@ -78,7 +74,6 @@ import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kan
     MindMapModule,
     AngularSplitModule,
 
-    CalendarHeaderComponent,
     DraggableEditableSectionComponent,
     GridEditorComponent,
 
