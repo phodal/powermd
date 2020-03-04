@@ -10,14 +10,11 @@ import { CalendarHeaderComponent } from './components/calendar-header/calendar-h
 import { CalendarCommonModule } from 'angular-calendar';
 import { ContentEditableDirective } from './directives/content-editable.directive';
 import { DraggableEditableSectionComponent } from './components/draggable-editable-section/draggable-editable-section.component';
-import { CoordinatesMapComponent } from './components/coordinates-map/coordinates-map.component';
 import { EcoFabSpeedDialModule } from '@ecodev/fab-speed-dial';
 import { GridEditorComponent } from './components/grid-editor/grid-editor.component';
-import { CoordinatesBackgroundComponent } from './components/coordinates-background/coordinates-background.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RichTextEditorComponent } from './components/rich-text-editor/rich-text-editor.component';
 import { MarkdownTasksEditorComponent } from './markdown/markdown-task-editor/markdown-tasks-editor.component';
-import { MarkdownRenderModule } from './markdown/markdown-render/markdown-render.module';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { MarkdownTaskItemComponent } from './markdown/markdown-task-item/markdown-task-item.component';
 import { MarkdownTaskRenderComponent } from './markdown/markdown-task-render/markdown-task-render.component';
@@ -57,9 +54,7 @@ import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kan
     CalendarHeaderComponent,
     DraggableEditableSectionComponent,
     ContentEditableDirective,
-    CoordinatesMapComponent,
     GridEditorComponent,
-    CoordinatesBackgroundComponent,
 
     MarkdownTasksEditorComponent,
     MarkdownTaskItemComponent,
@@ -85,9 +80,7 @@ import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kan
 
     CalendarHeaderComponent,
     DraggableEditableSectionComponent,
-    CoordinatesMapComponent,
     GridEditorComponent,
-    CoordinatesBackgroundComponent,
 
     MarkdownTasksEditorComponent,
     MarkdownTaskItemComponent,
