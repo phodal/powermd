@@ -12,7 +12,6 @@ import d3 from "d3";
 
 var RadarChart = {
   draw: function (id, chartData, options) {
-    console.log(options)
     var cfg = {
       radius: 5,
       w: options.width,
