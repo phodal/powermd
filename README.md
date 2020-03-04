@@ -8,9 +8,9 @@ Features:
 
  - [x] markdown to mindset
  - [x] markdown to todo list
- - [ ] markdown to Checklist
+ - [ ] markdown to JSON
  - [ ] markdown to RadarChart (with checklist)
- - [ ] markdown to RadarChart (with rating)
+ - [x] markdown to RadarChart (with rating)
 
 # Screenshots
 
@@ -21,6 +21,10 @@ Markdown to Mindset
 Markdown to Todo List
 
 ![Todolist](docs/images/md-todo.png)
+
+Markdown to RadarChart
+
+![RadarChart](docs/images/md-radar-chart.png)
 
 License
 ---
