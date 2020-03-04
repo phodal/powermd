@@ -1,33 +1,90 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core';
 import { MarkdownTaskModel } from '../model/markdown.model';
 import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-item.service';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import RadarChart from './RadarChart.js';
 import d3 from 'd3';
+import MarkdownHelper from '../utils/markdown.helper';
 
 @Component({
   selector: 'component-markdown-radar-chart',
   templateUrl: './markdown-radar-chart.component.html',
-  styleUrls: ['./markdown-radar-chart.component.scss']
+  styleUrls: ['./markdown-radar-chart.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => MarkdownRadarChartComponent),
+      multi: true
+    }
+  ]
 })
-export class MarkdownRadarChartComponent implements OnInit, AfterViewInit {
+export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, ControlValueAccessor {
   @ViewChild('baseElement', {}) baseElement: ElementRef;
-  tasks: MarkdownTaskModel[];
+  items: MarkdownTaskModel[];
+  data: any[] = [];
+  private value: any;
+  private disabled: boolean;
 
   constructor(private markdownTaskItemService: MarkdownTaskItemService) {
   }
 
   ngOnInit() {
+  }
 
+
+  onChange(value: any) {
+  }
+
+  onTouched() {
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+  writeValue(obj: any): void {
+    this.value = obj;
+    if (!this.value) {
+      return;
+    }
+
+    this.items = this.value;
+    this.render();
   }
 
   ngAfterViewInit(): void {
-    this.render();
+
+  }
+
+  private taskToData(tasks: any[]) {
+    const data: any[] = [];
+    for (const task of tasks) {
+      data.push(
+        {
+          axis: task.item.text,
+          value: 3
+        }
+      );
+    }
+
+    return data;
   }
 
   /* tslint:disable */
   render() {
-    const element = this.baseElement.nativeElement;
+    if (!this.items) {
+      return;
+    }
+    this.data = this.taskToData(this.items);
 
     const w = 500;
     const h = 500;
@@ -35,15 +92,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit {
     let colorscale = d3.scale.category10();
 
     let LegendOptions = ['Smartphone', 'Tablet'];
-    let data = [
-      [
-        {axis: 'Email', value: 4},
-        {axis: 'Social Networks', value: 2},
-        {axis: 'Internet Banking', value: 3},
-        {axis: 'News Sportsites', value: 2},
-        {axis: 'Search Engine', value: 5}
-      ], []
-    ];
+    let data = [this.data];
 
     // Options for the Radar chart, other than default
     let mycfg = {
@@ -97,5 +146,4 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit {
       })
     ;
   }
-
 }

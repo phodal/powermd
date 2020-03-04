@@ -144,6 +144,7 @@ const MarkdownHelper = {
 
     return tasks;
   },
+
   toMindMapData(markdownJson: any) {
     if (!markdownJson) {
       return [];
@@ -166,6 +167,7 @@ const MarkdownHelper = {
     }
     return results;
   },
+
   convertMindMapChildren(childrens: any[] | TreeModel[], results) {
     for (const taskItem of childrens) {
       const item = {

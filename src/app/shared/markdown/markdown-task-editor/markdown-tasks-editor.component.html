@@ -30,9 +30,8 @@
         </div>
         <div *ngIf="displayType === 'radar'">
           <component-markdown-radar-chart
-            [ngModel]="tasks"
-            ngDefaultControl
-          >
+            [(ngModel)]="tasks"
+            ngDefaultControl>
           </component-markdown-radar-chart>
         </div>
       </div>
