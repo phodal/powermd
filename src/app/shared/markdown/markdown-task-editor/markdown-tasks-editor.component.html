@@ -31,7 +31,7 @@
         <div *ngIf="displayType === 'radar'">
           <component-markdown-radar-chart
             [(ngModel)]="tasks"
-            ngDefaultControl>
+            (ngModelChange)="updateModel($event)">
           </component-markdown-radar-chart>
         </div>
       </div>

@@ -16,6 +16,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class MarkdownRatingComponent implements OnInit, ControlValueAccessor {
   @Input() list: [];
+  @Input() isParent = false;
 
   private disabled = false;
 
@@ -50,11 +51,16 @@ export class MarkdownRatingComponent implements OnInit, ControlValueAccessor {
     }
   }
 
-  checkValue($event: any, item) {
-
-  }
-
   changeForm($event: any, item: any) {
-    console.log($event, item);
+    const execArray = /(.*)\:\s*(\d)/.exec(item.originText);
+    if (execArray && execArray.length >= 3) {
+      const text = execArray[1];
+      item.originText = text + ':' + item.value;
+    } else {
+      item.originText = item.originText + ':' + item.value;
+    }
+
+    const list = this.markdownTaskItemService.updateTask(null, item);
+    this.onChange(list);
   }
 }

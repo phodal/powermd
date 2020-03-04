@@ -3,6 +3,7 @@
   <markdown-rating
     id="rating"
     [(ngModel)]="value"
+    [isParent] = true
     (ngModelChange)="updateModel($event)">
   </markdown-rating>
 </div>

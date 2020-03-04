@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, forwardRef, OnInit, ViewChild } from '@angular/core';
-import { MarkdownTaskModel } from '../model/markdown.model';
 import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-item.service';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -65,7 +64,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
   }
 
   updateModel($event: any) {
-    console.log($event);
+    this.onChange($event);
   }
 
   private taskToData() {

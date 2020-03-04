@@ -1,6 +1,7 @@
 <ul id="markdown-rating">
   <li *ngFor="let task of list">
     <markdown-rating-item
+      [isParent]="isParent"
       [item]="task.item"
       (itemChange)="changeForm($event, task.item)">
     </markdown-rating-item>
@@ -9,7 +10,7 @@
       <markdown-rating
         ngDefaultControl
         [(ngModel)]="task.childrens"
-        (ngModelChange)="checkValue($event, task)">
+        (ngModelChange)="changeForm($event, task.item)">
       </markdown-rating>
     </span>
   </li>

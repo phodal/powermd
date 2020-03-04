@@ -17,6 +17,7 @@ import { MatSliderChange } from '@angular/material/slider';
 })
 export class MarkdownRatingItemComponent implements OnInit {
   @Input() item: MarkdownTaskModel;
+  @Input() isParent: boolean;
   @Output() itemChange = new EventEmitter();
 
   private disabled = false;
