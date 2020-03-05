@@ -16,7 +16,6 @@ before_script:
 
 script:
   - ng lint
-  - yarn deploy
 
 deploy:
   provider: pages
