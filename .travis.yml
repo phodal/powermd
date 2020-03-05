@@ -16,7 +16,6 @@ before_script:
 
 script:
   - ng lint
-  - npm run test-headless
   - yarn deploy
 
 deploy:
