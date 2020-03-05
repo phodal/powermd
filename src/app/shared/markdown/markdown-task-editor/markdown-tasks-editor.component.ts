@@ -3,7 +3,7 @@ import marked from 'marked';
 const Mousetrap = require('mousetrap');
 import { SplitAreaDirective, SplitComponent } from 'angular-split';
 
-import { MarkdownTaskModel } from '../model/markdown.model';
+import { MarkdownListModel } from '../model/markdown.model';
 import MarkdownHelper from '../utils/markdown.helper';
 import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-item.service';
 import { StorageService } from '../../../core/services/storage.service';
@@ -127,7 +127,7 @@ export class MarkdownTasksEditorComponent implements OnInit, AfterViewInit {
 
     for (const task of tasks) {
       if (task.item) {
-        const item = task.item as MarkdownTaskModel;
+        const item = task.item as MarkdownListModel;
         if (this.taskIndex > 1) {
           this.indexString = '  '.repeat(this.taskIndex);
         }

@@ -1,6 +1,6 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MarkdownTaskModel } from '../model/markdown.model';
+import { MarkdownListModel } from '../model/markdown.model';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
@@ -16,7 +16,7 @@ import { MatCheckboxChange } from '@angular/material/checkbox';
   ]
 })
 export class MarkdownTaskItemFormComponent implements OnInit, ControlValueAccessor {
-  @Input() item: MarkdownTaskModel;
+  @Input() item: MarkdownListModel;
   @Output() itemChange = new EventEmitter();
 
   private disabled = false;

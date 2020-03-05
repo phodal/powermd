@@ -1,6 +1,6 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MarkdownTaskModel } from '../model/markdown.model';
+import { MarkdownListModel } from '../model/markdown.model';
 import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
@@ -16,7 +16,7 @@ import { MatSliderChange } from '@angular/material/slider';
   ]
 })
 export class MarkdownRatingItemComponent implements OnInit {
-  @Input() item: MarkdownTaskModel;
+  @Input() item: MarkdownListModel;
   @Input() isParent: boolean;
   @Output() itemChange = new EventEmitter();
 

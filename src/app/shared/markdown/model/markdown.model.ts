@@ -1,4 +1,4 @@
-export interface MarkdownTaskModel {
+export interface MarkdownListModel {
   id: string;
   completed: boolean;
   editable?: boolean;

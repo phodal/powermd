@@ -5,7 +5,7 @@ import { TreeModel } from '../../third-party/ngx-tree-dnd/models/tree-view.model
 
 const shortid = require('shortid');
 
-import { MarkdownTaskModel } from '../model/markdown.model';
+import { MarkdownListModel } from '../model/markdown.model';
 
 const COMPLETED_PATTERN = /(\[[x|X]] )(.*)/;
 const COMPLETED_PREPENDED_DATES_PATTERN = /(\d{4}-\d{2}-\d{2}) (\d{4}-\d{2}-\d{2}) (.*)/;
@@ -16,7 +16,7 @@ const TAG_PATTERN = /(?:^|\s)\+(\S*\w)/g;
 const PRIORITY_PATTERN = /\(([A-Z])\) (.*)/;
 
 const MarkdownHelper = {
-  todoCompiled(text: any): MarkdownTaskModel {
+  todoCompiled(text: any): MarkdownListModel {
     const originText = text;
     let completed = false;
     let startDate;
@@ -89,6 +89,7 @@ const MarkdownHelper = {
       text
     };
   },
+
   markdownToJSON(tokens: marked.Token[], originTasks) {
     let tasks;
     let result = '{';
@@ -183,6 +184,14 @@ const MarkdownHelper = {
     }
 
     return results;
+  },
+
+  buildRatingValue(item: MarkdownListModel) {
+
+  },
+
+  updateTextFromRatingValue(item: MarkdownListModel) {
+
   }
 };
 

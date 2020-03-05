@@ -1,5 +1,5 @@
 import { Component, forwardRef, OnInit } from '@angular/core';
-import { MarkdownTaskModel } from '../model/markdown.model';
+import { MarkdownListModel } from '../model/markdown.model';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-item.service';
@@ -18,7 +18,7 @@ import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-ite
 })
 export class MarkdownTaskRenderComponent implements OnInit, ControlValueAccessor {
   value: string;
-  tasks: MarkdownTaskModel[];
+  tasks: MarkdownListModel[];
   hasSubscribe = false;
   private disabled = false;
 

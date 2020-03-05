@@ -5,7 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 
 import MarkdownHelper from '../../../markdown/utils/markdown.helper';
 import { MarkdownTaskItemFormComponent } from 'src/app/shared/markdown/markdown-task-item-form/markdown-task-item-form.component';
-import { MarkdownTaskModel } from '../../../markdown/model/markdown.model';
+import { MarkdownListModel } from '../../../markdown/model/markdown.model';
 import { MarkdownTaskItemService } from '../../../markdown/markdown-task-item/markdown-task-item.service';
 
 const d3 = require('d3');
@@ -565,7 +565,7 @@ export class MindMapComponent implements OnInit, AfterViewInit, ControlValueAcce
     this.onChange(results);
   }
 
-  updateItem(item: MarkdownTaskModel) {
+  updateItem(item: MarkdownListModel) {
     const that = this;
     const dialogRef = this.dialog.open(MarkdownTaskItemFormComponent);
 
