@@ -5,7 +5,7 @@ import { TreeModel } from '../../third-party/ngx-tree-dnd/models/tree-view.model
 
 const shortid = require('shortid');
 
-import { MarkdownListModel } from '../model/markdown.model';
+import { MarkdownListModel } from './markdown.model';
 
 const COMPLETED_PATTERN = /(\[[x|X]] )(.*)/;
 const COMPLETED_PREPENDED_DATES_PATTERN = /(\d{4}-\d{2}-\d{2}) (\d{4}-\d{2}-\d{2}) (.*)/;

@@ -21,7 +21,7 @@ import { MarkdownTaskItemService } from './markdown/markdown-task/markdown-task-
 import { MindMapModule } from './modules/mind-map/mind-map.module';
 import { MarkdownTaskItemComponent } from './markdown/markdown-task-item/markdown-task-item.component';
 import { AngularSplitModule } from 'angular-split';
-import { MarkdownKanbanComponent } from './components/markdown-kanban/markdown-kanban.component';
+import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kanban.component';
 import { MarkdownRadarChartComponent } from './markdown/markdown-radar-chart/markdown-radar-chart.component';
 import { MarkdownRatingComponent } from './markdown/markdown-rating/markdown-rating.component';
 import { MarkdownRatingItemComponent } from './markdown/markdown-rating-item/markdown-rating-item.component';

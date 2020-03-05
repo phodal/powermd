@@ -4,7 +4,7 @@ const Mousetrap = require('mousetrap');
 import { SplitAreaDirective, SplitComponent } from 'angular-split';
 
 import { MarkdownListModel } from '../../markdown/model/markdown.model';
-import MarkdownHelper from '../../markdown/utils/markdown.helper';
+import MarkdownHelper from '../../markdown/model/markdown.helper';
 import { MarkdownTaskItemService } from '../../markdown/markdown-task/markdown-task-item.service';
 import { StorageService } from '../../../core/services/storage.service';
 import { MatSelectChange } from '@angular/material/select';

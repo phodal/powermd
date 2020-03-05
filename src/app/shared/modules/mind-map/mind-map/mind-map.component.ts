@@ -3,7 +3,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
-import MarkdownHelper from '../../../markdown/utils/markdown.helper';
+import MarkdownHelper from '../../../markdown/model/markdown.helper';
 import { MarkdownTaskItemComponent } from 'src/app/shared/markdown/markdown-task-item/markdown-task-item.component';
 import { MarkdownListModel } from '../../../markdown/model/markdown.model';
 import { MarkdownTaskItemService } from '../../../markdown/markdown-task/markdown-task-item.service';
