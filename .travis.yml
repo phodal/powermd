@@ -8,6 +8,11 @@ branches:
   only:
     - master
 
+addons:
+  firefox: latest
+  chrome: stable
+  yarn: 1.17.3
+
 before_script:
   - npm install -g @angular/cli
 
