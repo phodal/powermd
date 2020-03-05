@@ -2,6 +2,7 @@ import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@ang
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MarkdownListModel } from '../../model/markdown.model';
 import { MatSliderChange } from '@angular/material/slider';
+import MarkdownHelper from '../../model/markdown.helper';
 
 @Component({
   selector: 'markdown-rating-item',
@@ -52,16 +53,8 @@ export class MarkdownRatingItemComponent implements OnInit {
     }
   }
 
-  updateValue($event: MatSliderChange) {
-    this.item.chartValue = $event.value;
-    const execArray = /(.*)\:\s*(\d)/.exec(this.item.text);
-    if (execArray && execArray.length >= 3) {
-      const text = execArray[1];
-      this.item.text = text + ':' + this.item.chartValue;
-    } else {
-       this.item.text = this.item.text + ':' + this.item.chartValue;
-    }
-
-    this.itemChange.emit(this.item);
+  updateValue() {
+    const item = MarkdownHelper.updateTextFromRatingValue(this.item);
+    this.itemChange.emit(item);
   }
 }

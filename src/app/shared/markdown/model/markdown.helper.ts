@@ -208,7 +208,19 @@ const MarkdownHelper = {
   },
 
   updateTextFromRatingValue(item: MarkdownListModel) {
+    const execArray = /(.*)\:\s*(\d)/.exec(item.text);
+    if (execArray && execArray.length >= 3) {
+      const text = execArray[1];
+      item.text = text + ':' + item.chartValue;
+    } else {
+      item.text = item.text + ':' + item.chartValue;
+    }
 
+    if (!!item.chartFutureValue) {
+      item.text = item.text + ',' + item.chartFutureValue;
+    }
+
+    return item;
   }
 };
 

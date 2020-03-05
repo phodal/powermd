@@ -77,7 +77,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
       MarkdownHelper.buildRatingValue(item);
 
       current.push({axis: item.chartText, value: item.chartValue});
-      future.push( {axis: item.chartText, value: item.chartFutureValue});
+      future.push({axis: item.chartText, value: item.chartFutureValue});
     }
 
     return [current, future];
@@ -95,7 +95,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
 
     let colorscale = d3.scale.category10();
 
-    let LegendOptions = ['Smartphone', 'Tablet'];
+    let LegendOptions = ['Current', 'Future'];
     let data = this.data;
 
     // Options for the Radar chart, other than default
@@ -119,8 +119,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
       .attr('class', 'legend')
       .attr('height', 100)
       .attr('width', 200)
-      .attr('transform', 'translate(90,20)')
-    ;
+      .attr('transform', 'translate(90,20)');
 
     legend.selectAll('rect')
       .data(LegendOptions)
@@ -132,8 +131,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
       .attr('height', 10)
       .style('fill', function(d, i) {
         return colorscale(i.toString());
-      })
-    ;
+      });
 
     legend.selectAll('text')
       .data(LegendOptions)
@@ -147,7 +145,6 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
       .attr('fill', '#737373')
       .text(function(d) {
         return d;
-      })
-    ;
+      });
   }
 }
