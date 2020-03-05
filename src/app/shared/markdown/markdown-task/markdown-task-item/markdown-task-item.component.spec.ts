@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { MarkdownTaskRenderComponent } from './markdown-task-render.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SharedModule } from '../../shared.module';
-import { FeaturesModule } from '../../../features/features.module';
 
-describe('MarkdownTaskRenderComponent', () => {
-  let component: MarkdownTaskRenderComponent;
-  let fixture: ComponentFixture<MarkdownTaskRenderComponent>;
+import { MarkdownTaskItemComponent } from './markdown-task-item.component';
+import { SharedModule } from '../../../shared.module';
+import { FeaturesModule } from '../../../../features/features.module';
+
+describe('MarkdownTaskItemFormComponent', () => {
+  let component: MarkdownTaskItemComponent;
+  let fixture: ComponentFixture<MarkdownTaskItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,14 +18,19 @@ describe('MarkdownTaskRenderComponent', () => {
         SharedModule,
         FeaturesModule
       ],
-      declarations: [  ]
+      declarations: [ ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MarkdownTaskRenderComponent);
+    fixture = TestBed.createComponent(MarkdownTaskItemComponent);
     component = fixture.componentInstance;
+    component.item = {
+      id: '',
+      completed: false,
+      text: '23442'
+    };
     fixture.detectChanges();
   });
 

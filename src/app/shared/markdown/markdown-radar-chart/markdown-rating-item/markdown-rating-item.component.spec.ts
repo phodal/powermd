@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MarkdownRatingItemComponent } from './markdown-rating-item.component';
-import { SharedModule } from '../../shared.module';
-import { FeaturesModule } from '../../../features/features.module';
+import { SharedModule } from '../../../shared.module';
+import { FeaturesModule } from '../../../../features/features.module';
 import { MarkdownModule } from 'ngx-markdown';
 
 describe('MarkdownRatingItemComponent', () => {

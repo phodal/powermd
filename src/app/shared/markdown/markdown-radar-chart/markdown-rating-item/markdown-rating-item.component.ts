@@ -1,6 +1,6 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MarkdownListModel } from '../model/markdown.model';
+import { MarkdownListModel } from '../../model/markdown.model';
 import { MatSliderChange } from '@angular/material/slider';
 
 @Component({
