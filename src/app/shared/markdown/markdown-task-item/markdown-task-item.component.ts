@@ -1,6 +1,7 @@
-import { Component, forwardRef, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Input, OnInit, Output } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MarkdownTaskItemService } from './markdown-task-item.service';
+import { MarkdownListModel } from '../model/markdown.model';
+import { MatCheckboxChange } from '@angular/material/checkbox';
 
 @Component({
   selector: 'component-markdown-task-item',
@@ -15,25 +16,26 @@ import { MarkdownTaskItemService } from './markdown-task-item.service';
   ]
 })
 export class MarkdownTaskItemComponent implements OnInit, ControlValueAccessor {
-  @Input() list: [];
+  @Input() item: MarkdownListModel;
+  @Output() itemChange = new EventEmitter();
 
   private disabled = false;
 
-  onChange(_) {
+  onChange(param1) {
   }
 
-  onTouched(_) {
+  onTouched(param1) {
   }
 
-  constructor(private markdownTaskItemService: MarkdownTaskItemService) {
-
+  constructor() {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
+
 
   registerOnChange(fn: any): void {
-    this.onChange = fn;
+    this.itemChange.emit = fn;
   }
 
   registerOnTouched(fn: any): void {
@@ -45,16 +47,35 @@ export class MarkdownTaskItemComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
-    if (obj !== null) {
-      this.list = obj;
+    if (obj !== null && obj !== undefined) {
+      this.item = obj;
+      if (this.item && !this.item.completed) {
+        this.item.completed = false;
+      }
     }
   }
 
-  checkValue($event: any, item) {
-    this.markdownTaskItemService.updateTask($event, item);
+  updateText($event: any) {
+    this.item.editable = false;
+    this.itemChange.emit(this.item);
   }
 
-  changeForm($event: any, item: any) {
-    this.markdownTaskItemService.updateTask($event, item);
+  changeStartDateInput($event: any) {
+    this.item.startDate = $event;
+    this.itemChange.emit(this.item);
+  }
+
+  changeEndDateInput($event: any) {
+    this.item.endDate = $event;
+    this.itemChange.emit(this.item);
+  }
+
+  enableEdit(event) {
+    this.item.editable = true;
+  }
+
+  checkValue($event: MatCheckboxChange) {
+    this.item.completed = $event.checked;
+    this.itemChange.emit(this.item);
   }
 }

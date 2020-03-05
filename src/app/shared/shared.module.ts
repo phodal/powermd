@@ -12,16 +12,16 @@ import { EcoFabSpeedDialModule } from '@ecodev/fab-speed-dial';
 import { GridEditorComponent } from './components/grid-editor/grid-editor.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RichTextEditorComponent } from './components/rich-text-editor/rich-text-editor.component';
-import { MarkdownTasksEditorComponent } from './markdown/markdown-task-editor/markdown-tasks-editor.component';
+import { PowerMdEditorComponent } from './components/power-md-editor/power-md-editor.component';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
-import { MarkdownTaskItemComponent } from './markdown/markdown-task-item/markdown-task-item.component';
+import { MarkdownTaskComponent } from './markdown/markdown-task/markdown-task.component';
 import { MarkdownTaskRenderComponent } from './markdown/markdown-task-render/markdown-task-render.component';
 import { FlatpickrModule } from 'angularx-flatpickr';
-import { MarkdownTaskItemService } from './markdown/markdown-task-item/markdown-task-item.service';
+import { MarkdownTaskItemService } from './markdown/markdown-task/markdown-task-item.service';
 import { MindMapModule } from './modules/mind-map/mind-map.module';
-import { MarkdownTaskItemFormComponent } from './markdown/markdown-task-item-form/markdown-task-item-form.component';
+import { MarkdownTaskItemComponent } from './markdown/markdown-task-item/markdown-task-item.component';
 import { AngularSplitModule } from 'angular-split';
-import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kanban.component';
+import { MarkdownKanbanComponent } from './components/markdown-kanban/markdown-kanban.component';
 import { MarkdownRadarChartComponent } from './markdown/markdown-radar-chart/markdown-radar-chart.component';
 import { MarkdownRatingComponent } from './markdown/markdown-rating/markdown-rating.component';
 import { MarkdownRatingItemComponent } from './markdown/markdown-rating-item/markdown-rating-item.component';
@@ -55,11 +55,11 @@ import { MarkdownRatingItemComponent } from './markdown/markdown-rating-item/mar
     ContentEditableDirective,
     GridEditorComponent,
 
-    MarkdownTasksEditorComponent,
-    MarkdownTaskItemComponent,
+    PowerMdEditorComponent,
+    MarkdownTaskComponent,
     RichTextEditorComponent,
     MarkdownTaskRenderComponent,
-    MarkdownTaskItemFormComponent,
+    MarkdownTaskItemComponent,
     MarkdownKanbanComponent,
     MarkdownRadarChartComponent,
 
@@ -84,18 +84,18 @@ import { MarkdownRatingItemComponent } from './markdown/markdown-rating-item/mar
     DraggableEditableSectionComponent,
     GridEditorComponent,
 
-    MarkdownTasksEditorComponent,
-    MarkdownTaskItemComponent,
+    PowerMdEditorComponent,
+    MarkdownTaskComponent,
     MarkdownTaskRenderComponent,
     RichTextEditorComponent,
-    MarkdownTaskItemFormComponent,
+    MarkdownTaskItemComponent,
     MarkdownKanbanComponent,
     MarkdownRadarChartComponent,
     MarkdownRatingComponent,
     MarkdownRatingItemComponent
   ],
   entryComponents: [
-    MarkdownTaskItemFormComponent
+    MarkdownTaskItemComponent
   ]
 })
 export class SharedModule {

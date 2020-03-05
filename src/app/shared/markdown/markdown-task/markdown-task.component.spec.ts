@@ -2,13 +2,13 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { MarkdownTaskItemFormComponent } from './markdown-task-item-form.component';
+import { MarkdownTaskComponent } from './markdown-task.component';
 import { SharedModule } from '../../shared.module';
 import { FeaturesModule } from '../../../features/features.module';
 
-describe('MarkdownTaskItemFormComponent', () => {
-  let component: MarkdownTaskItemFormComponent;
-  let fixture: ComponentFixture<MarkdownTaskItemFormComponent>;
+describe('MarkdownTaskItemComponent', () => {
+  let component: MarkdownTaskComponent;
+  let fixture: ComponentFixture<MarkdownTaskComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -18,19 +18,14 @@ describe('MarkdownTaskItemFormComponent', () => {
         SharedModule,
         FeaturesModule
       ],
-      declarations: [ ]
+      declarations: [  ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MarkdownTaskItemFormComponent);
+    fixture = TestBed.createComponent(MarkdownTaskComponent);
     component = fixture.componentInstance;
-    component.item = {
-      id: '',
-      completed: false,
-      text: '23442'
-    };
     fixture.detectChanges();
   });
 

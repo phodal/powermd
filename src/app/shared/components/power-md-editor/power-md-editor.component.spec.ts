@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MarkdownTasksEditorComponent } from './markdown-tasks-editor.component';
+import { PowerMdEditorComponent } from './power-md-editor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { SharedModule } from '../../shared.module';
 import { FeaturesModule } from '../../../features/features.module';
 
 describe('MarkdownEditorComponent', () => {
-  let component: MarkdownTasksEditorComponent;
-  let fixture: ComponentFixture<MarkdownTasksEditorComponent>;
+  let component: PowerMdEditorComponent;
+  let fixture: ComponentFixture<PowerMdEditorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -24,7 +24,7 @@ describe('MarkdownEditorComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MarkdownTasksEditorComponent);
+    fixture = TestBed.createComponent(PowerMdEditorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

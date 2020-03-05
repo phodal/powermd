@@ -2,7 +2,7 @@ import { Component, forwardRef, OnInit } from '@angular/core';
 import { MarkdownListModel } from '../model/markdown.model';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
-import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-item.service';
+import { MarkdownTaskItemService } from '../markdown-task/markdown-task-item.service';
 
 @Component({
   selector: 'component-markdown-task-render',

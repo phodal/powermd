@@ -3,18 +3,18 @@ import marked from 'marked';
 const Mousetrap = require('mousetrap');
 import { SplitAreaDirective, SplitComponent } from 'angular-split';
 
-import { MarkdownListModel } from '../model/markdown.model';
-import MarkdownHelper from '../utils/markdown.helper';
-import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-item.service';
+import { MarkdownListModel } from '../../markdown/model/markdown.model';
+import MarkdownHelper from '../../markdown/utils/markdown.helper';
+import { MarkdownTaskItemService } from '../../markdown/markdown-task/markdown-task-item.service';
 import { StorageService } from '../../../core/services/storage.service';
 import { MatSelectChange } from '@angular/material/select';
 
 @Component({
-  selector: 'component-markdown-task-editor',
-  templateUrl: './markdown-tasks-editor.component.html',
-  styleUrls: ['./markdown-tasks-editor.component.scss']
+  selector: 'component-powermd-editor',
+  templateUrl: './power-md-editor.component.html',
+  styleUrls: ['./power-md-editor.component.scss']
 })
-export class MarkdownTasksEditorComponent implements OnInit, AfterViewInit {
+export class PowerMdEditorComponent implements OnInit, AfterViewInit {
   @Input() textValue = '';
   @Output() change = new EventEmitter();
 

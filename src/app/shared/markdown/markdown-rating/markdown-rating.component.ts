@@ -1,5 +1,5 @@
 import { Component, forwardRef, Input, OnInit } from '@angular/core';
-import { MarkdownTaskItemService } from '../markdown-task-item/markdown-task-item.service';
+import { MarkdownTaskItemService } from '../markdown-task/markdown-task-item.service';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({

@@ -4,9 +4,9 @@ import { Subject } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 
 import MarkdownHelper from '../../../markdown/utils/markdown.helper';
-import { MarkdownTaskItemFormComponent } from 'src/app/shared/markdown/markdown-task-item-form/markdown-task-item-form.component';
+import { MarkdownTaskItemComponent } from 'src/app/shared/markdown/markdown-task-item/markdown-task-item.component';
 import { MarkdownListModel } from '../../../markdown/model/markdown.model';
-import { MarkdownTaskItemService } from '../../../markdown/markdown-task-item/markdown-task-item.service';
+import { MarkdownTaskItemService } from '../../../markdown/markdown-task/markdown-task-item.service';
 
 const d3 = require('d3');
 const Mousetrap = require('mousetrap');
@@ -567,7 +567,7 @@ export class MindMapComponent implements OnInit, AfterViewInit, ControlValueAcce
 
   updateItem(item: MarkdownListModel) {
     const that = this;
-    const dialogRef = this.dialog.open(MarkdownTaskItemFormComponent);
+    const dialogRef = this.dialog.open(MarkdownTaskItemComponent);
 
     let instance = dialogRef.componentInstance;
     instance.item = item;

@@ -1,16 +1,31 @@
-<ul>
-  <li *ngFor="let task of list">
-    <component-markdown-task-item-form
-      [item]="task.item"
-      (itemChange)="changeForm($event, task.item)">
-    </component-markdown-task-item-form>
+<mat-checkbox class="complete" [(ngModel)]="item.completed" (change)="checkValue($event)"></mat-checkbox>
 
-    <span *ngIf="task.childrens">
-      <component-markdown-task-item
-        ngDefaultControl
-        [(ngModel)]="task.childrens"
-        (ngModelChange)="checkValue($event, {})">
-      </component-markdown-task-item>
-    </span>
-  </li>
-</ul>
+<span class="priority" *ngIf="item.priority || item.editable">{{item.priority}} </span>
+<span class="start-date" *ngIf="item.startDate || item.editable">
+  <mat-form-field>
+    <input mwlFlatpickr
+           matInput
+           (ngModelChange)="changeStartDateInput($event)"
+           [(ngModel)]="item.startDate">
+    <mat-icon matPrefix>calendar today</mat-icon>
+  </mat-form-field>
+</span>
+<span class="end-date" *ngIf="item.endDate || item.editable">
+  <mat-form-field>
+    <input mwlFlatpickr
+           matInput
+           (ngModelChange)="changeEndDateInput($event)"
+           [(ngModel)]="item.endDate">
+          <mat-icon matPrefix>calendar today</mat-icon>
+  </mat-form-field>
+</span>
+
+<div class="item-markdown-render" markdown (click)="enableEdit($event)" *ngIf="!item.editable">{{item.text}}</div>
+<input autofocus *ngIf="item.editable" type="text" [(ngModel)]="item.text"
+       (keyup.enter)="updateText($event)">
+
+<span class="context" *ngIf="item.context"> @{{item.context}} </span>
+<span class="tag" *ngIf="item.tag">
+      <span *ngFor="let tag of item.tag;let last = last">{{tag}}
+        <ng-template *ngIf="!last">,</ng-template> </span>
+</span>

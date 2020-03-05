@@ -6,7 +6,7 @@ import { MarkdownTaskItemComponent } from './markdown-task-item.component';
 import { SharedModule } from '../../shared.module';
 import { FeaturesModule } from '../../../features/features.module';
 
-describe('MarkdownTaskItemComponent', () => {
+describe('MarkdownTaskItemFormComponent', () => {
   let component: MarkdownTaskItemComponent;
   let fixture: ComponentFixture<MarkdownTaskItemComponent>;
 
@@ -18,7 +18,7 @@ describe('MarkdownTaskItemComponent', () => {
         SharedModule,
         FeaturesModule
       ],
-      declarations: [  ]
+      declarations: [ ]
     })
     .compileComponents();
   }));
@@ -26,6 +26,11 @@ describe('MarkdownTaskItemComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(MarkdownTaskItemComponent);
     component = fixture.componentInstance;
+    component.item = {
+      id: '',
+      completed: false,
+      text: '23442'
+    };
     fixture.detectChanges();
   });
 
