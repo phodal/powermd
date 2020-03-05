@@ -4,6 +4,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import RadarChart from './RadarChart.js';
 import d3 from 'd3';
+import MarkdownHelper from '../model/markdown.helper';
+import { MarkdownListModel } from '../model/markdown.model';
 
 @Component({
   selector: 'component-markdown-radar-chart',
@@ -68,26 +70,17 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
   }
 
   private taskToData() {
-    const data: any[] = [];
+    const current: any[] = [];
+    const future: any[] = [];
     for (const task of this.items) {
-      let text = task.item.text;
-      let value = 3;
+      const item: MarkdownListModel = task.item;
+      MarkdownHelper.buildRatingValue(item);
 
-      const execArray = /(.*)\:\s*(\d)/.exec(text);
-      if (execArray && execArray.length >= 3) {
-        text = execArray[1];
-        value = parseInt(execArray[2], 10);
-        task.item.value = value;
-      }
-      data.push(
-        {
-          axis: text,
-          value
-        }
-      );
+      current.push({axis: item.chartText, value: item.chartValue});
+      future.push( {axis: item.chartText, value: item.chartFutureValue});
     }
 
-    return data;
+    return [current, future];
   }
 
   /* tslint:disable */
@@ -103,7 +96,7 @@ export class MarkdownRadarChartComponent implements OnInit, AfterViewInit, Contr
     let colorscale = d3.scale.category10();
 
     let LegendOptions = ['Smartphone', 'Tablet'];
-    let data = [this.data];
+    let data = this.data;
 
     // Options for the Radar chart, other than default
     let mycfg = {

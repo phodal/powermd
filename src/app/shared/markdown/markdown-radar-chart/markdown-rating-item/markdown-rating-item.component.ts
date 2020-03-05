@@ -53,13 +53,13 @@ export class MarkdownRatingItemComponent implements OnInit {
   }
 
   updateValue($event: MatSliderChange) {
-    this.item.value = $event.value;
+    this.item.chartValue = $event.value;
     const execArray = /(.*)\:\s*(\d)/.exec(this.item.text);
     if (execArray && execArray.length >= 3) {
       const text = execArray[1];
-      this.item.text = text + ':' + this.item.value;
+      this.item.text = text + ':' + this.item.chartValue;
     } else {
-       this.item.text = this.item.text + ':' + this.item.value;
+       this.item.text = this.item.text + ':' + this.item.chartValue;
     }
 
     this.itemChange.emit(this.item);

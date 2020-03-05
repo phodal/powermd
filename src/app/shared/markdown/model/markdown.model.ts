@@ -9,7 +9,10 @@ export interface MarkdownListModel {
   context?: string;
   priority?: string;
   mail?: string;
-  value?: number;
   tag?: string[];
+
+  chartText?: string;
+  chartValue?: number;
+  chartFutureValue?: number;
 }
 

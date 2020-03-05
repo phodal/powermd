@@ -187,7 +187,24 @@ const MarkdownHelper = {
   },
 
   buildRatingValue(item: MarkdownListModel) {
+    let text = item.text;
+    let value = 3;
 
+    const execArray = /(.*)\:\s*(\d),?\s*(\d)?/.exec(text);
+    if (execArray && execArray.length >= 3) {
+      text = execArray[1];
+      value = parseInt(execArray[2], 10);
+
+      item.chartText = text;
+      item.chartValue = value;
+      item.chartFutureValue = value;
+
+      if (execArray.length === 4 && execArray[3]) {
+        item.chartFutureValue = parseInt(execArray[3], 10);
+      }
+    }
+
+    return item;
   },
 
   updateTextFromRatingValue(item: MarkdownListModel) {
