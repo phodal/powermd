@@ -21,6 +21,6 @@ deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist/travis-demo
+  local_dir: dist/powermd
   on:
     branch: master
