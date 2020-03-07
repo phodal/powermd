@@ -6,12 +6,20 @@ PowerMD is a new markdown tool for Phodal's wrok.
 
 Features:
 
- - [x] markdown to mindset
- - [x] markdown to todo list
- - [ ] markdown to JSON
- - [ ] markdown to RadarChart (with checklist)
- - [x] markdown to RadarChart (with rating)
-
+ - markdown list DSL
+   - [x] mindset
+   - [x] todo list
+   - [ ] markdown list DSL JSON
+   - [ ] markdown list DSL RadarChart (with checklist)
+   - [x] markdown list DSL RadarChart (with rating)
+   - [ ] kanban
+   - [ ] calendar
+   - [ ] radial tidy tree (aka, skill tree)
+ - markdown table DSL
+   - [ ] to chart
+ - other
+   - [ ] hexbin (capable)
+   
 # Screenshots
 
 Markdown to Mindset
