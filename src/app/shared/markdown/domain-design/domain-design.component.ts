@@ -57,8 +57,8 @@ interface AggregateGroup {
   ]
 })
 export class DomainDesignComponent implements OnInit, ControlValueAccessor {
-  @ViewChild('domainObjectMenu', null) userMenu: TemplateRef<any>;
-  @ViewChildren('txtArea', null) textAreas: QueryList<ElementRef>;
+  @ViewChild('domainObjectMenu', {}) userMenu: TemplateRef<any>;
+  @ViewChildren('txtArea', {}) textAreas: QueryList<ElementRef>;
   items: any[];
   data: any[] = [];
   value: any;
@@ -102,19 +102,6 @@ export class DomainDesignComponent implements OnInit, ControlValueAccessor {
   }
 
   ngOnInit() {
-    const that = this;
-    // localforage.getItem('domain-design-key', (err, value) => {
-    //   if (err) {
-    //     this.usedTestData();
-    //     return;
-    //   }
-    //
-    //   if (value) {
-    //     that.inputData = value as any;
-    //   } else {
-    //     this.usedTestData();
-    //   }
-    // });
   }
 
   onChange(value: any) {
@@ -175,7 +162,6 @@ export class DomainDesignComponent implements OnInit, ControlValueAccessor {
 
 
   private taskToDDDModel(data: DomainObject[]) {
-    console.log(data);
     this.inputData = {
       aggregates: [{
         domainObjects: data,
@@ -189,17 +175,11 @@ export class DomainDesignComponent implements OnInit, ControlValueAccessor {
 
   }
 
-  changeAggregateModel($event, groupIndex: number) {
-
-  }
-
   onRightClick($event) {
     $event.preventDefault();
-    alert('onRightClick');
   }
 
   storageData() {
-    // localforage.setItem('domain-design-key', this.inputData);
   }
 
   onResizeEnd($event: ResizeEvent) {
