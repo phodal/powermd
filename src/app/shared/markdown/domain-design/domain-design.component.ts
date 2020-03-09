@@ -1,7 +1,7 @@
 import {
   ChangeDetectorRef,
   Component,
-  ElementRef, HostListener,
+  ElementRef, forwardRef, HostListener,
   Input,
   OnInit,
   QueryList,
@@ -17,6 +17,7 @@ import { TemplatePortal } from '@angular/cdk/portal';
 import { fromEvent, Subscription } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 import shortid from 'shortid';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 interface ValueObject {
   id?: string;
@@ -46,11 +47,22 @@ interface AggregateGroup {
 @Component({
   selector: 'markdown-domain-design',
   templateUrl: './domain-design.component.html',
-  styleUrls: ['./domain-design.component.scss']
+  styleUrls: ['./domain-design.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => DomainDesignComponent),
+      multi: true
+    }
+  ]
 })
-export class DomainDesignComponent implements OnInit {
+export class DomainDesignComponent implements OnInit, ControlValueAccessor {
   @ViewChild('domainObjectMenu', null) userMenu: TemplateRef<any>;
   @ViewChildren('txtArea', null) textAreas: QueryList<ElementRef>;
+  items: any[];
+  data: any[] = [];
+  value: any;
+  private disabled: boolean;
 
   overlayRef: OverlayRef | null;
   sub: Subscription;
@@ -78,10 +90,13 @@ export class DomainDesignComponent implements OnInit {
               private eRef: ElementRef,
               private viewContainerRef: ViewContainerRef
   ) {
-    this.dragulaService.createGroup('PARENT', {
-      direction: 'vertical',
-      moves: (el, source, handle) => handle.className === 'group-handle'
-    });
+    const parentGroup = this.dragulaService.find('PARENT');
+    if (!parentGroup) {
+      this.dragulaService.createGroup('PARENT', {
+        direction: 'vertical',
+        moves: (el, source, handle) => handle.className === 'group-handle'
+      });
+    }
 
     this.bindKeyboardEvent();
   }
@@ -102,59 +117,68 @@ export class DomainDesignComponent implements OnInit {
     // });
   }
 
-  private usedTestData() {
-    const testData: DomainObject[] = [
-      {
-        isRoot: true,
-        isEntity: true,
-        name: '订单',
-        newItem: {
-          editable: false,
-          name: ''
-        },
-        valueObjects: [
-          {name: '订单ID'},
-          {name: '币种'},
-          {name: '汇率'},
-          {name: '总价'},
-          {name: '总数'},
-          {name: '收货信息'},
-          {name: '订单状态'},
-          {name: '支付信息'},
-        ]
-      },
-      {
-        isRoot: true,
-        isEntity: true,
-        name: '订单项',
-        newItem: {
-          editable: false,
-          name: ''
-        },
-        valueObjects: [
-          {name: '订单项ID'},
-          {name: '订单ID'},
-          {name: '单价'},
-          {name: '小计'},
-          {name: '数量'},
-          {name: '快照ID'},
-          {name: '配货单ID'},
-          {name: '出库单ID'},
-          {name: '发库单ID'},
-        ]
-      }
-    ];
+  onChange(value: any) {
 
-    for (const domainData of testData) {
-      domainData.id = shortid.generate();
-      for (const vo of domainData.valueObjects) {
-        vo.id = shortid.generate();
-      }
+  }
+
+  onTouched() {
+  }
+
+  registerOnChange(fn: any): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
+
+  writeValue(obj: any): void {
+    this.value = obj;
+    if (!this.value) {
+      return;
     }
 
+    this.items = this.value;
+    const domainData: DomainObject[] = [];
+    for (const task of this.items) {
+      const vos: ValueObject[] = [];
+      for (const children of task.childrens) {
+        vos.push({
+          id: shortid.generate(),
+          editable: false,
+          name: children.item.text
+        });
+      }
+
+      const domain: DomainObject = {
+        id: shortid.generate(),
+        name: task.item.text,
+        isRoot: false,
+        isEntity: false,
+        valueObjects: vos,
+        editable: false,
+        newItem: {
+          editable: false,
+          name: ''
+        },
+      };
+
+      domainData.push(domain);
+    }
+
+    this.taskToDDDModel(domainData);
+  }
+
+
+  private taskToDDDModel(data: DomainObject[]) {
+    console.log(data);
     this.inputData = {
       aggregates: [{
-        domainObjects: testData,
+        domainObjects: data,
         newGroup: this.createNewGroup()
       }]
     };
@@ -258,11 +282,6 @@ export class DomainDesignComponent implements OnInit {
   onTextareaEnter(x: ValueObject) {
     x.editable = false;
   }
-
-  //
-  // mergeGroup(domainObjects: DomainObject[]) {
-  // }
-
 
   mergeGroup($event) {
     this.inputData.aggregates.push({
