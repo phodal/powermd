@@ -9,7 +9,6 @@ import { NgxTreeDndModule } from './third-party/ngx-tree-dnd/ngx-tree-dnd.module
 import { ContentEditableDirective } from './directives/content-editable.directive';
 import { DraggableEditableSectionComponent } from './components/draggable-editable-section/draggable-editable-section.component';
 import { EcoFabSpeedDialModule } from '@ecodev/fab-speed-dial';
-import { GridEditorComponent } from './components/grid-editor/grid-editor.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { RichTextEditorComponent } from './components/rich-text-editor/rich-text-editor.component';
 import { PowerMdEditorComponent } from './components/power-md-editor/power-md-editor.component';
@@ -53,7 +52,6 @@ import { MarkdownRatingItemComponent } from './markdown/markdown-radar-chart/mar
   declarations: [
     DraggableEditableSectionComponent,
     ContentEditableDirective,
-    GridEditorComponent,
 
     PowerMdEditorComponent,
     MarkdownTaskComponent,
@@ -82,7 +80,6 @@ import { MarkdownRatingItemComponent } from './markdown/markdown-radar-chart/mar
     AngularSplitModule,
 
     DraggableEditableSectionComponent,
-    GridEditorComponent,
 
     PowerMdEditorComponent,
     MarkdownTaskComponent,
