@@ -1,0 +1,61 @@
+<div class="domain-design" *ngFor="let aggregate of inputData.aggregates; let groupIndex = index;">
+    <div dragula="PARENT"
+         [(dragulaModel)]="aggregate.domainObjects"
+         mwlResizable
+         (dragulaModelChange)="storageData()"
+         [enableGhostResize]="true"
+         [resizeEdges]="{ bottom: true, right: true, top: true, left: true }"
+         (resizeEnd)="onResizeEnd($event)">
+
+        <div *ngFor="let group of aggregate.domainObjects">
+            <div class="group-handle" (contextmenu)="openContext($event, group)">
+                {{group.name}}
+            </div>
+            <div class="aggregate-container"
+                 dragula="ITEMS"
+                 (dragulaModelChange)="storageData()"
+                 [(dragulaModel)]="group.valueObjects">
+                <div class="drag-item vo" *ngFor="let x of group.valueObjects;let index = index;"
+                     (dblclick)="enableEdit(x)" [attr.data-id]="x.id">
+                    <span *ngIf="!x.editable">{{x.name}}</span>
+                    <textarea #txtArea
+                              *ngIf="x.editable"
+                              [(ngModel)]="x.name"
+                              (keydown.enter)="onTextareaEnter(x)"></textarea>
+                </div>
+                <div class="create-item" (dblclick)="enableEdit(group.newItem)">
+                    <span *ngIf="!group.newItem.editable"></span>
+                    <textarea #txtArea
+                              *ngIf="group.newItem.editable"
+                              [(ngModel)]="group.newItem.name"
+                              (keydown.enter)="addValueObject(group.newItem, group.valueObjects)"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="new-group">
+        <div class="new-group-item" (dblclick)="enableNewGroupEdit(inputData.aggregates[groupIndex].newGroup)"
+             [attr.data-id]="groupIndex">
+            <span *ngIf="!inputData.aggregates[groupIndex].newGroup.editable"></span>
+            <textarea #txtArea
+                      *ngIf="inputData.aggregates[groupIndex].newGroup.editable"
+                      [(ngModel)]="inputData.aggregates[groupIndex].newGroup.name"
+                      [attr.data-textarea-id]="groupIndex"
+                      (keydown.enter)="addNewAggregate(inputData.aggregates[groupIndex])"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="domain-design" dragula="PARENT"
+     [(dragulaModel)]="newDomainGroup.domainObjects"
+     (dragulaModelChange)="newDomainGroup.domainObjects = $event;mergeGroup($event)"
+>
+</div>
+
+
+<ng-template #domainObjectMenu let-domain>
+    <mat-card class="vo-menu">
+        <div (click)="deleteDomain(domain)">Delete</div>
+    </mat-card>
+</ng-template>

@@ -24,6 +24,8 @@ import { MarkdownKanbanComponent } from './markdown/markdown-kanban/markdown-kan
 import { MarkdownRadarChartComponent } from './markdown/markdown-radar-chart/markdown-radar-chart.component';
 import { MarkdownRatingComponent } from './markdown/markdown-radar-chart/markdown-rating/markdown-rating.component';
 import { MarkdownRatingItemComponent } from './markdown/markdown-radar-chart/markdown-rating-item/markdown-rating-item.component';
+import { DomainDesignComponent } from './markdown/domain-design/domain-design.component';
+import { DragulaModule } from 'ng2-dragula';
 
 @NgModule({
   imports: [
@@ -47,7 +49,8 @@ import { MarkdownRatingItemComponent } from './markdown/markdown-radar-chart/mar
         },
       },
     }),
-    MindMapModule
+    MindMapModule,
+    DragulaModule.forRoot()
   ],
   declarations: [
     DraggableEditableSectionComponent,
@@ -62,7 +65,9 @@ import { MarkdownRatingItemComponent } from './markdown/markdown-radar-chart/mar
     MarkdownRadarChartComponent,
 
     MarkdownRatingComponent,
-    MarkdownRatingItemComponent
+    MarkdownRatingItemComponent,
+
+    DomainDesignComponent
   ],
   providers: [
     ContentEditableDirective,
@@ -89,7 +94,9 @@ import { MarkdownRatingItemComponent } from './markdown/markdown-radar-chart/mar
     MarkdownKanbanComponent,
     MarkdownRadarChartComponent,
     MarkdownRatingComponent,
-    MarkdownRatingItemComponent
+    MarkdownRatingItemComponent,
+
+    DomainDesignComponent,
   ],
   entryComponents: [
     MarkdownTaskItemComponent

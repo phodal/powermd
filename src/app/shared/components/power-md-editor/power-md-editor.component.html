@@ -13,6 +13,7 @@
             <mat-option value="todo">Todo</mat-option>
             <mat-option value="mindmap">Mind Map</mat-option>
             <mat-option value="radar">Radar Chart</mat-option>
+            <mat-option value="ddd">Domain Driven Design</mat-option>
           </mat-select>
         </mat-form-field>
 
@@ -33,6 +34,12 @@
             [(ngModel)]="tasks"
             (ngModelChange)="updateModel($event)">
           </component-markdown-radar-chart>
+        </div>
+        <div *ngIf="displayType === 'ddd'">
+          <markdown-domain-design
+            [(ngModel)]="tasks"
+            (ngModelChange)="updateModel($event)">
+          </markdown-domain-design>
         </div>
       </div>
     </as-split-area>
